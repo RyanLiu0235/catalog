@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/stop2stare/catalog/issues"
   },
-  "homepage": "https://github.com/stop2stare/catalog#readme"
+  "homepage": "https://github.com/stop2stare/catalog#readme",
+  "dependencies": {
+    "chalk": "^1.1.3"
+  }
 }
