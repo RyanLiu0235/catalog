@@ -1,0 +1,22 @@
+{
+  "name": "catalog",
+  "version": "1.0.0",
+  "description": "list your npm scripts according to your package.json",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stop2stare/catalog.git"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "author": "liucheng <emitremmus@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stop2stare/catalog/issues"
+  },
+  "homepage": "https://github.com/stop2stare/catalog#readme"
+}
