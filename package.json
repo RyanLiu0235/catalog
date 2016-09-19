@@ -1,10 +1,10 @@
 {
-  "name": "catalog",
-  "version": "1.0.0",
+  "name": "npm-scripts-catalog",
+  "version": "1.0.4",
   "description": "list your npm scripts according to your package.json",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
+  "bin": {
+    "catalog": "./bin/index"
   },
   "repository": {
     "type": "git",
