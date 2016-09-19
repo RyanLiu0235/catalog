@@ -9,9 +9,8 @@ var log = console.log;
 function _objIsEmpty(obj) {
 	for (var i in obj) {
 		return false;
-	} else {
-		return true;
 	}
+	return true;
 }
 
 
@@ -22,7 +21,7 @@ fs.readFile('./package.json', function(err, data) {
 	var _settings = JSON.parse(data.toString()).scripts;
 	log('\n');
 	if (_objIsEmpty(_settings)) {
-		log('no script is available');
+		log(chalk.yellow('no script is available'));
 		return 
 	}
 	log(chalk.yellow('scripts available:'));
