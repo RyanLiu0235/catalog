@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 var fs = require('fs');
 var chalk = require('chalk');
 var log = console.log;
@@ -15,14 +16,16 @@ function _objIsEmpty(obj) {
 
 
 fs.readFile('./package.json', function(err, data) {
+	log('\n');
 	if (err) {
-		throw err;
+		log(chalk.red('no package.json was found.'));
+		log('\n');
+		return;
 	}
 	var _settings = JSON.parse(data.toString()).scripts;
-	log('\n');
 	if (_objIsEmpty(_settings)) {
 		log(chalk.yellow('no script is available'));
-		return 
+		return;
 	}
 	log(chalk.yellow('scripts available:'));
 	for (var i in _settings) {
