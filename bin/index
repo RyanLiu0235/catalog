@@ -16,10 +16,10 @@ function _objIsEmpty(obj) {
 
 
 fs.readFile('./package.json', function(err, data) {
-	log('\n');
+	log('');
 	if (err) {
 		log(chalk.red('no package.json was found.'));
-		log('\n');
+		log('');
 		return;
 	}
 	var _settings = JSON.parse(data.toString()).scripts;
@@ -31,5 +31,5 @@ fs.readFile('./package.json', function(err, data) {
 	for (var i in _settings) {
 		log('    ' + chalk.blue(i + ': ') + chalk.green(_settings[i]));
 	}
-	log('\n');
+	log('');
 });
