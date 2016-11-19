@@ -1,9 +1,9 @@
 # Catalog
 
-list your npm scripts according to your package.json
-
 [![npm](https://img.shields.io/npm/dt/npm-scripts-catalog.svg)](https://www.npmjs.com/package/npm-scripts-catalog)
 [![npm](https://img.shields.io/npm/v/npm-scripts-catalog.svg)](https://www.npmjs.com/package/npm-scripts-catalog)
+
+list your npm scripts according to your package.json
 
 ## Usage
 
@@ -30,7 +30,5 @@ scripts available:
 and if there is no scripts available, it will print 
 
 ``` sh
-
 no script is available
-
 ```

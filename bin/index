@@ -3,33 +3,17 @@
 var fs = require('fs');
 var chalk = require('chalk');
 var log = console.log;
+var scripts = require(process.cwd() + '/package.json').scripts;
 
-/**
- * 判断对象是否为空
- */
-function _objIsEmpty(obj) {
-	for (var i in obj) {
-		return false;
+if (scripts === undefined) {
+	log('');
+	log(chalk.red('no script was ever defined!'));
+	log('');
+} else {
+	log('');
+	log(chalk.yellow('   scripts available:'));
+	for (var i in scripts) {
+		log('       ' + chalk.blue(i + ': ') + chalk.green(scripts[i]));
 	}
-	return true;
+	log('');
 }
-
-
-fs.readFile('./package.json', function(err, data) {
-	log('');
-	if (err) {
-		log(chalk.red('no package.json was found.'));
-		log('');
-		return;
-	}
-	var _settings = JSON.parse(data.toString()).scripts;
-	if (_objIsEmpty(_settings)) {
-		log(chalk.yellow('no script is available'));
-		return;
-	}
-	log(chalk.yellow('scripts available:'));
-	for (var i in _settings) {
-		log('    ' + chalk.blue(i + ': ') + chalk.green(_settings[i]));
-	}
-	log('');
-});
