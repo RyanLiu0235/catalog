@@ -5,7 +5,13 @@
 
 list your npm scripts according to your package.json
 
-## Usage
+## Update
+
+In version 2.0, thanks to [Inquirer.js](https://github.com/SBoudrias/Inquirer.js), `npm-scripts-catalog` is able to provide interactive command line user interfaces, making it even easier to execute your command.
+
+Just enjoy and have some fun!
+
+## Install
 
 ``` sh
 $ npm install -g npm-scripts-catalog
@@ -15,20 +21,15 @@ $ npm install -g npm-scripts-catalog
 
 `npm-scripts-catalog` will list the available scripts of your current projects according to the package.json file.
 
-## Demo
+## Usage
 
 ``` sh
 $ cd someRepo
 $ catalog
-
-scripts available:
-    test: node test.js
-    start: node app.js
-
 ```
 
 and if there is no scripts available, it will print 
 
 ``` sh
-no script is available
+no script was ever defined!
 ```
