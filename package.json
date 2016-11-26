@@ -1,6 +1,6 @@
 {
   "name": "npm-scripts-catalog",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "list your npm scripts according to your package.json",
   "main": "index.js",
   "bin": {
@@ -11,7 +11,9 @@
     "url": "git+https://github.com/stop2stare/catalog.git"
   },
   "keywords": [
-    "npm", "catalog", "scripts"
+    "npm",
+    "catalog",
+    "scripts"
   ],
   "author": "liucheng <emitremmus@163.com>",
   "license": "MIT",
@@ -21,5 +23,8 @@
   "homepage": "https://github.com/stop2stare/catalog#readme",
   "dependencies": {
     "chalk": "^1.1.3"
+  },
+  "devDependencies": {
+    "inquirer": "^1.2.3"
   }
 }

@@ -4,16 +4,40 @@ var fs = require('fs');
 var chalk = require('chalk');
 var log = console.log;
 var scripts = require(process.cwd() + '/package.json').scripts;
+var inquirer = require('inquirer');
+var exec = require('child_process').exec;
+
+// 选择
+var list = [
+  {
+    type: 'rawlist',
+    name: 'scripts',
+    message: 'which script you\'d like to execute?',
+    choices: []
+  }
+];
 
 if (scripts === undefined) {
-	log('');
-	log(chalk.red('no script was ever defined!'));
-	log('');
+	log();
+	log(chalk.red('   no script was ever defined!'));
+	log();
 } else {
-	log('');
-	log(chalk.yellow('   scripts available:'));
 	for (var i in scripts) {
-		log('       ' + chalk.blue(i + ': ') + chalk.green(scripts[i]));
+		list[0].choices.push(scripts[i]);
 	}
-	log('');
+	// 弹出提示给用户选择命令
+	inquirer.prompt(list).then(function (answers) {
+		exec(answers.scripts, (error, stdout, stderr) => {
+		  if (error) {
+		    log(chalk.red(`exec error: ${error}`));
+		    return;
+		  }
+		  if (stdout) {
+		  	log(chalk.green(`stdout: ${stdout}`));
+		  }
+		  if (stderr) {
+		  	log(chalk.red(`stderr: ${stderr}`));
+		  }
+		});
+	});
 }
