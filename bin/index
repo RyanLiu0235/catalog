@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
-var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
 var chalk = require('chalk');
 var inquirer = require('inquirer');
 var log = console.log;
@@ -36,18 +36,9 @@ if (scripts === undefined) {
   }
   // 弹出提示给用户选择命令
   inquirer.prompt(list).then(answers => {
-    var run = exec(`npm run ${answers.scripts}`);
-
-    run.stdout.on('data', (data) => {
-      log(data);
-    });
-
-    run.stderr.on('data', data => {
-      log(data);
-    });
-
-    run.on('error', err => {
-      log(chalk.red(err));
+    const name = answers.scripts.slice(0, answers.scripts.indexOf('#')).trim();
+    spawn('npm', ['run', name], {
+      stdio: 'inherit'
     });
   });
 }
