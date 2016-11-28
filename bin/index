@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-var fs = require('fs');
 var spawn = require('child_process').spawn;
 var chalk = require('chalk');
 var inquirer = require('inquirer');
