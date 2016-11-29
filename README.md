@@ -33,3 +33,7 @@ and if there is no scripts available, it will print
 ``` sh
 no script was ever defined!
 ```
+
+## Preview
+
+![catalog](./catalog.gif)
