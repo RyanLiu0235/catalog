@@ -4,7 +4,8 @@
   "description": "list your npm scripts according to your package.json",
   "main": "index.js",
   "bin": {
-    "catalog": "./bin/index"
+    "catalog": "./bin/index",
+    "ctl": "./bin/index"
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,7 @@
     "catalog",
     "scripts"
   ],
-  "author": "liucheng <emitremmus@163.com>",
+  "author": "liucheng <emitremmus0235@163.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/stop2stare/catalog/issues"
