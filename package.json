@@ -24,6 +24,7 @@
   "homepage": "https://github.com/stop2stare/catalog#readme",
   "dependencies": {
     "chalk": "^1.1.3",
+    "commander": "^2.11.0",
     "inquirer": "^1.2.3"
   }
 }

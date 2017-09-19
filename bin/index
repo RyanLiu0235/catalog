@@ -3,6 +3,7 @@
 var spawn = require('child_process').spawn;
 var chalk = require('chalk');
 var inquirer = require('inquirer');
+var program = require('commander');
 var log = console.log;
 var scripts = require(process.cwd() + '/package.json').scripts;
 
@@ -17,10 +18,20 @@ var list = [{
 }];
 
 /**
+ * help
+ */
+program
+  .version('2.1.0')
+  .option('-d, --detail', 'list detail commands')
+  .parse(process.argv);
+
+var isDetail = program.detail
+
+/**
  * padding
  */
 console.log();
-process.on('exit', function () {
+process.on('exit', function() {
   console.log();
 });
 
@@ -30,12 +41,20 @@ process.on('exit', function () {
 if (scripts === undefined) {
   log(chalk.red('   no script was ever defined!'));
 } else {
+  var script = ''
   for (var i in scripts) {
-    list[0].choices.push(`${i} # -> ${scripts[i]}`);
+    script = i;
+    if (isDetail) {
+      script += ' # -> ' + scripts[i]
+    }
+    list[0].choices.push(script);
   }
   // 弹出提示给用户选择命令
-  inquirer.prompt(list).then(answers => {
-    const name = answers.scripts.slice(0, answers.scripts.indexOf('#')).trim();
+  inquirer.prompt(list).then(function(answers) {
+    var scripts = answers.scripts;
+    var name = isDetail ?
+      scripts.slice(0, scripts.indexOf('#')).trim() :
+      scripts;
     spawn('npm', ['run', name], {
       stdio: 'inherit'
     });
