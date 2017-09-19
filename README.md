@@ -26,6 +26,8 @@ $ npm install -g npm-scripts-catalog
 ``` sh
 $ cd someRepo
 $ catalog
+# alias `ctl` is more recommended, which is also globally registerred, because it's shorter
+$ ctl
 ```
 
 and if there is no scripts available, it will print 
@@ -33,6 +35,23 @@ and if there is no scripts available, it will print
 ``` sh
 no script was ever defined!
 ```
+
+## Options
+
+``` sh
+catalog git:(master) ctl -h
+
+  Usage: ctl [options]
+
+
+  Options:
+
+    -V, --version  output the version number
+    -d, --detail   list detail commands
+    -h, --help     output usage information
+```
+
+* **-d**, this params helps to show the detail infomations of each command
 
 ## Preview
 
