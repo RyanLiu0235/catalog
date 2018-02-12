@@ -1,7 +1,7 @@
-# Catalog
-
-[![npm](https://img.shields.io/npm/dt/npm-scripts-catalog.svg)](https://www.npmjs.com/package/npm-scripts-catalog)
+# Catalog [![npm](https://img.shields.io/npm/dt/npm-scripts-catalog.svg)](https://www.npmjs.com/package/npm-scripts-catalog)
 [![npm](https://img.shields.io/npm/v/npm-scripts-catalog.svg)](https://www.npmjs.com/package/npm-scripts-catalog)
+
+`npm-scripts-catalog` is CLI tool for you to start npm scripts faster.
 
 ## Description
 
