@@ -5,7 +5,8 @@ var chalk = require('chalk');
 var inquirer = require('inquirer');
 var program = require('commander');
 var log = console.log;
-var scripts = require(process.cwd() + '/package.json').scripts;
+var info = require(process.cwd() + '/package.json');
+var scripts = info.scripts;
 var fuzzy = require('fuzzy');
 inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'));
 
@@ -22,7 +23,7 @@ var list = [{
  * help
  */
 program
-  .version('2.0.6')
+  .version(info.version)
   .option('-d, --detail', 'list detail commands')
   .parse(process.argv);
 
