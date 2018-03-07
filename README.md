@@ -6,7 +6,7 @@
 
 `npm-scripts-catalog` will list the available scripts of your current projects according to the package.json file. And what's more convenient is that you can now run the scripts automatically instead of typing the scripts.
 
-After updating to version 2.x, I suggest you run `catalog` every time you try to start your apps, it's more efficient.
+After updating to version 2.x, I suggest you run `catalog` every time you try to start your apps, it's more efficient. And also, you can type some letters of your commands, options will be autocompleted.
 
 ## Update
 
