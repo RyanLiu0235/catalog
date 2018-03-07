@@ -6,15 +6,16 @@ var inquirer = require('inquirer');
 var program = require('commander');
 var log = console.log;
 var scripts = require(process.cwd() + '/package.json').scripts;
+var fuzzy = require('fuzzy');
+inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'));
 
 /**
  * list to be prompted
  */
 var list = [{
-  type: 'list',
+  type: 'autocomplete',
   name: 'scripts',
-  message: 'which script you\'d like to execute?',
-  choices: []
+  message: 'which command you\'d like to run?'
 }];
 
 /**
@@ -30,33 +31,38 @@ var isDetail = program.detail
 /**
  * padding
  */
-console.log();
+log();
 process.on('exit', function() {
-  console.log();
+  log();
 });
 
 /**
  * read the scripts and show it to users
  */
 if (scripts === undefined) {
-  log(chalk.red('   no script was ever defined!'));
+  log(chalk.red('   no command was defined in package.json!'));
 } else {
-  var script = ''
-  for (var i in scripts) {
-    script = i;
-    if (isDetail) {
-      script += ' # -> ' + scripts[i]
-    }
-    list[0].choices.push(script);
+  var scriptNames = []
+  for (var name in scripts) {
+    scriptNames.push(name + (isDetail ? ': ' + scripts[name] : ''));
   }
-  // 弹出提示给用户选择命令
+  list[0].source = function(answers, input) {
+    input = input || '';
+    var rst = fuzzy
+      .filter(input, scriptNames)
+      .map(item => item.original);
+    return Promise.resolve(rst);
+  }
+  // prompt
   inquirer.prompt(list).then(function(answers) {
     var scripts = answers.scripts;
     var name = isDetail ?
-      scripts.slice(0, scripts.indexOf('#')).trim() :
+      scripts.slice(0, scripts.indexOf(':')).trim() :
       scripts;
     spawn('npm', ['run', name], {
       stdio: 'inherit'
     });
+  }, function(err) {
+    log(err)
   });
 }
