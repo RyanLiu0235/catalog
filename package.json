@@ -1,7 +1,7 @@
 {
   "name": "npm-scripts-catalog",
-  "version": "2.0.6",
-  "description": "list your npm scripts according to your package.json",
+  "version": "2.1.0",
+  "description": "list your npm scripts according to your package.json and run them",
   "main": "index.js",
   "bin": {
     "catalog": "./bin/index",
